@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      实用机器学习知识--使用PCA的目的及误区 | Yang Yang 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="John Doe">
+    
+    
+
+    <meta name="description" content="使用机器学习算法解决实际问题过程中，使用PCA的目的：
+
+[x] 数据压缩：节省存储空间
+[x] 节省时间：粗体文本在不影响算法效率的前提下，使用PCA可有效降低特征空间维度，加速求解过程
+[x] 数据可视化：高维数据通常难以可视化，难以进行直观分析，使用PCA将数据维度降为2D/3D,可以方便分析数据分布特征
+
+使用误区：
+为避免过拟合使用PCA降维：避免过拟合，首选“正则化”。不适宜用PCA避">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实用机器学习知识--使用PCA的目的及误区 | Yang Yang">
+<meta property="og:url" content="http://yoursite.com/2016/06/21/实用机器学习知识--使用PCA的目的及误区/index.html">
+<meta property="og:site_name" content="Yang Yang">
+<meta property="og:description" content="使用机器学习算法解决实际问题过程中，使用PCA的目的：
+
+[x] 数据压缩：节省存储空间
+[x] 节省时间：粗体文本在不影响算法效率的前提下，使用PCA可有效降低特征空间维度，加速求解过程
+[x] 数据可视化：高维数据通常难以可视化，难以进行直观分析，使用PCA将数据维度降为2D/3D,可以方便分析数据分布特征
+
+使用误区：
+为避免过拟合使用PCA降维：避免过拟合，首选“正则化”。不适宜用PCA避">
+<meta property="og:updated_time" content="2016-01-28T21:50:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="实用机器学习知识--使用PCA的目的及误区 | Yang Yang">
+<meta name="twitter:description" content="使用机器学习算法解决实际问题过程中，使用PCA的目的：
+
+[x] 数据压缩：节省存储空间
+[x] 节省时间：粗体文本在不影响算法效率的前提下，使用PCA可有效降低特征空间维度，加速求解过程
+[x] 数据可视化：高维数据通常难以可视化，难以进行直观分析，使用PCA将数据维度降为2D/3D,可以方便分析数据分布特征
+
+使用误区：
+为避免过拟合使用PCA降维：避免过拟合，首选“正则化”。不适宜用PCA避">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Yang Yang</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/home" title="" class="">Home</a></li>
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">Blog</a></li>
+              
+                
+                <li class="navigation__item"><a href="/publication" title="" class="">Publication</a></li>
+              
+                
+                <li class="navigation__item"><a href="/resume" title="" class="">Resume</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">Archive</a></li>
+              
+                
+                <li class="navigation__item"><a href="/Contact" title="" class="">Contact</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">实用机器学习知识--使用PCA的目的及误区</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-06-21" class="post-meta__date date">2016-06-21</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/机器学习/">机器学习</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <hr>
+<p>使用机器学习算法解决实际问题过程中，使用PCA的<strong>目的</strong>：</p>
+<ul>
+<li>[x] <strong>数据压缩</strong>：节省存储空间</li>
+<li>[x] <strong>节省时间</strong>：粗体文本在不影响算法效率的前提下，使用PCA可有效降低特征空间维度，加速求解过程</li>
+<li>[x] <strong>数据可视化</strong>：高维数据通常难以可视化，难以进行直观分析，使用PCA将数据维度降为2D/3D,可以方便分析数据分布特征</li>
+</ul>
+<p><strong>使用误区</strong>：</p>
+<p><strong>为避免过拟合使用PCA降维</strong>：避免过拟合，首选“正则化”。不适宜用PCA避免过拟合的原因有两点：</p>
+<blockquote>
+<ul>
+<li>用PCA降维来避免过拟合有可能损失信息（因为降维过程只考虑X,不考虑gold standard信息），影响算法效果 </li>
+<li>最主要的是用PCA通过降维避免过拟合的效果并不好！！！</li>
+</ul>
+</blockquote>
+<ul>
+<li>[x] 这给我们一个<strong>启示</strong>，<strong>在real world机器学习问题中，尽量保证raw data的完整性，不损失任何信息！！！当需要加速求解、节省空间时，再考虑降维。</strong></li>
+</ul>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2016/06/21/实用机器学习知识--使用PCA的目的及误区/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"fighting41love"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+
+
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+</body>
+</html>

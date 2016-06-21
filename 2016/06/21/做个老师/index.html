@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      CheckIO -- Non-unique Elements（zip,lambda,map的使用） | Yang Yang 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="John Doe">
+    
+    
+
+    <meta name="description" content="1. 题目：你将得到一个含有整数（X）的非空列表。要删除所有独特的元素（这是包含在一个给定的列表只有一次的元素）。不能改变列表的顺序。例如：[1，2，3，1，3] 1和3是非唯一元素，结果将是 [1, 3, 1, 3]。
+输入: 一个含有整数的列表。
+输出: 一个含有不唯一元素的整数列表。
+范例:checkio([1, 2, 3, 1, 3]) == [1, 3, 1, 3]checkio([1,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CheckIO -- Non-unique Elements（zip,lambda,map的使用） | Yang Yang">
+<meta property="og:url" content="http://yoursite.com/2016/06/21/做个老师/index.html">
+<meta property="og:site_name" content="Yang Yang">
+<meta property="og:description" content="1. 题目：你将得到一个含有整数（X）的非空列表。要删除所有独特的元素（这是包含在一个给定的列表只有一次的元素）。不能改变列表的顺序。例如：[1，2，3，1，3] 1和3是非唯一元素，结果将是 [1, 3, 1, 3]。
+输入: 一个含有整数的列表。
+输出: 一个含有不唯一元素的整数列表。
+范例:checkio([1, 2, 3, 1, 3]) == [1, 3, 1, 3]checkio([1,">
+<meta property="og:updated_time" content="2016-05-26T02:40:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CheckIO -- Non-unique Elements（zip,lambda,map的使用） | Yang Yang">
+<meta name="twitter:description" content="1. 题目：你将得到一个含有整数（X）的非空列表。要删除所有独特的元素（这是包含在一个给定的列表只有一次的元素）。不能改变列表的顺序。例如：[1，2，3，1，3] 1和3是非唯一元素，结果将是 [1, 3, 1, 3]。
+输入: 一个含有整数的列表。
+输出: 一个含有不唯一元素的整数列表。
+范例:checkio([1, 2, 3, 1, 3]) == [1, 3, 1, 3]checkio([1,">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Yang Yang</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/home" title="" class="">Home</a></li>
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">Blog</a></li>
+              
+                
+                <li class="navigation__item"><a href="/publication" title="" class="">Publication</a></li>
+              
+                
+                <li class="navigation__item"><a href="/resume" title="" class="">Resume</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">Archive</a></li>
+              
+                
+                <li class="navigation__item"><a href="/Contact" title="" class="">Contact</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">CheckIO -- Non-unique Elements（zip,lambda,map的使用）</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-06-21" class="post-meta__date date">2016-06-21</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Python/">Python</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p><strong>1. 题目：</strong><br>你将得到一个含有整数（X）的非空列表。<br>要删除所有独特的元素（这是包含在一个给定的列表只有一次的元素）。<br>不能改变列表的顺序。例如：[1，2，3，1，3] 1和3是非唯一元素，结果将是 [1, 3, 1, 3]。</p>
+<p>输入: 一个含有整数的列表。</p>
+<p>输出: 一个含有不唯一元素的整数列表。</p>
+<p>范例:<br>checkio([1, 2, 3, 1, 3]) == [1, 3, 1, 3]<br>checkio([1, 2, 3, 4, 5]) == []<br>checkio([5, 5, 5, 5, 5]) == [5, 5, 5, 5, 5]<br>checkio([10, 9, 10, 10, 9, 8]) == [10, 9, 10, 10, 9]</p>
+<p><strong>2. 解法</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkio</span><span class="params">(data)</span>:</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span> len(data)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line"></span><br><span class="line">    count_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">        count_list.append(data.count(i))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> data_item,count_time <span class="keyword">in</span> zip(data,count_list):</span><br><span class="line">        <span class="keyword">if</span> count_time==<span class="number">1</span>:</span><br><span class="line">            data.remove(data_item)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure></p>
+<p>又臭又长。。。思路是先统计每个数字的频数，然后用zip找到对应元素，删除之。<br>注意： 如果您使用的是python 3.3，那么应该使用list(zip(data,count_list))。</p>
+<p>大概说下zip, 可字面理解为“打包”，就是将多个sequence打包成一个tuple。这个函数非常有用！！！<br>举个例子：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>z1=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>z2=[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>result=zip(z1,z2)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>result</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>), (<span class="number">2</span>, <span class="number">5</span>), (<span class="number">3</span>, <span class="number">6</span>)]</span><br></pre></td></tr></table></figure></p>
+<p>如何解包呢？<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>[x1,x2]=zip(*result)</span><br><span class="line">x1 = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">x2 = (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</span><br></pre></td></tr></table></figure></p>
+<p>zip函数可以接受任意多个序列作为参数，不是只能有两个。</p>
+<p><strong>3. 最短解法</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">checkio=<span class="keyword">lambda</span> d:[x <span class="keyword">for</span> x <span class="keyword">in</span> d <span class="keyword">if</span> d.count(x)&gt;<span class="number">1</span>]</span><br></pre></td></tr></table></figure></p>
+<p>lambda：定义一个函数<br>为什么不用def来定义函数呢？<br>因为有些函数极其短小精悍，使用次数又很少。<br>此时，可以用lambda来做函数。</p>
+<p>上面的代码就是这样一个函数，该函数返回d。d是一个list，该list中元素频数大于1的，才留下并返回。<br>就是这么简单。</p>
+<p>可以说，很多编程语言中都有lambda这个功能。python中对lambda加了很多限制，比如智能在lambda后有一个运算，不能添加多个。<br>这是因为，lambda的使用非常方便！但带来方便的同时代码的可读性下降了，如果代码中lambda很多，这使得代码变得混乱，会为阅读代码带来困难。</p>
+<p><strong>4.map</strong><br>根据上面所述，我们了解到 lambda x: x*x, [y for y in range(5)] 是一个函数，这个函数是让所有的x变成x*x。</p>
+<p>输入：y=[0,1,2,3,4]<br>要得到输出： y=[0,1,4,9,16],就需要用到map了，即将y通过lambda函数，映射到另外一个list上,即：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b=map(<span class="keyword">lambda</span> x: x*x, [y <span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">5</span>)])</span><br></pre></td></tr></table></figure></p>
+<p>此时，b=[0,1,4,9,16].</p>
+<p>题目难度不大，我用了9行代码，高手只用了一行，而且可读性远超我的代码。<br>自己的编程水平有待提高，代码多了，需要注意的细节也就多，容易出错，影响编码效率。<br>勉之！！！！</p>
+<p><em>5. // 除法</em><br>双斜杠的除法，表示floor除,浮点除法。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span>//<span class="number">2</span>=<span class="number">2.5</span></span><br></pre></td></tr></table></figure></p>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2016/06/21/做个老师/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"fighting41love"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+
+
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+</body>
+</html>
