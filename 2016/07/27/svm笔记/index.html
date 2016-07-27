@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+       | Yang Yang 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="John Doe">
+    
+    
+
+    <meta name="description" content="先直接回答问题，varlog说的对！回答完毕。正定和半正定都是可以的，只是全局最优值有几个的问题。PRML上只说正定核。
+再瞎扯答一下相关问题，帮助自己消化一下。。摘抄地答一下，主要参考PRML的P329附近的内容。
+核函数正定有什么用？保证拉格朗日函数有上界，就是最大化问题有解，从而很好的定义了优化问题。
+什么意思呢？
+
+SVM的目标是最大化间隔，并让尽可能多的点分类正确。最大化间隔就是$arg">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" | Yang Yang">
+<meta property="og:url" content="http://yoursite.com/2016/07/27/svm笔记/index.html">
+<meta property="og:site_name" content="Yang Yang">
+<meta property="og:description" content="先直接回答问题，varlog说的对！回答完毕。正定和半正定都是可以的，只是全局最优值有几个的问题。PRML上只说正定核。
+再瞎扯答一下相关问题，帮助自己消化一下。。摘抄地答一下，主要参考PRML的P329附近的内容。
+核函数正定有什么用？保证拉格朗日函数有上界，就是最大化问题有解，从而很好的定义了优化问题。
+什么意思呢？
+
+SVM的目标是最大化间隔，并让尽可能多的点分类正确。最大化间隔就是$arg">
+<meta property="og:updated_time" content="2016-07-27T23:37:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" | Yang Yang">
+<meta name="twitter:description" content="先直接回答问题，varlog说的对！回答完毕。正定和半正定都是可以的，只是全局最优值有几个的问题。PRML上只说正定核。
+再瞎扯答一下相关问题，帮助自己消化一下。。摘抄地答一下，主要参考PRML的P329附近的内容。
+核函数正定有什么用？保证拉格朗日函数有上界，就是最大化问题有解，从而很好的定义了优化问题。
+什么意思呢？
+
+SVM的目标是最大化间隔，并让尽可能多的点分类正确。最大化间隔就是$arg">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Yang Yang</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/home" title="" class="">Home</a></li>
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">Blog</a></li>
+              
+                
+                <li class="navigation__item"><a href="/publication" title="" class="">Publication</a></li>
+              
+                
+                <li class="navigation__item"><a href="/resume" title="" class="">Resume</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">Archive</a></li>
+              
+                
+                <li class="navigation__item"><a href="/Contact" title="" class="">Contact</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title"></h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-07-27" class="post-meta__date date">2016-07-27</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>先直接回答问题，varlog说的对！回答完毕。<br>正定和半正定都是可以的，只是全局最优值有几个的问题。<br>PRML上只说正定核。</p>
+<p>再瞎扯答一下相关问题，帮助自己消化一下。。<br>摘抄地答一下，主要参考PRML的P329附近的内容。</p>
+<p>核函数正定有什么用？<br>保证拉格朗日函数有上界，就是最大化问题有解，从而很好的定义了优化问题。</p>
+<p>什么意思呢？</p>
+<ol>
+<li>SVM的目标是最大化间隔，并让尽可能多的点分类正确。<br>最大化间隔就是$arg\quad min \frac{1}{2} ||w||^{2}$， w是要求的参数，b也是要求的参数<br>令尽可能多的点分类正确，就是满足限制条件：t<em>{n}(w^{T}\phi (x</em>{n})+b)\geq 1<br>t_{n}是真实值，后面一坨是预测值，当两个一样时，分类正确，满足限制条件。</li>
+</ol>
+<p>2.以上是一个带有不等式限制的二次规划问题，解法是拉格朗日乘数法。。<br>L(w,b,a)=一坨，其中a是拉格朗日乘子<br>为了消去w和b，对w和b求导，令其等于0，就可以用拉格朗日乘子a来表示w。</p>
+<p>3.将上述拉格朗日改写成 核函数的形式–对偶形式。<br>L’(a)=一坨<br>核函数有几个好处。<br>1）解决无穷维等高维feature的问题。<br>就是原来拉格朗日函数L(w,b,a)的参数w对应着feature维度，如果w的维度非常高，那么你要求解的参数就会非常多。相反，如果转换为L’(a)，就变成了求拉格朗日乘子a，这个a只跟样本数目相关。也就是说，当特征维度远远超过样本数目时，用核函数表示的拉格朗日函数，求解参数更少。所以说，也不是任何时候都必须用对偶形式。要看你的数据特点。</p>
+<p>2）得到一个well-defined的优化问题–容易求解。<br>既然上面所说的拉格朗日函数是二次规划问题，一个目标函数总能写成如下形式：<br>f(x)=\frac{1}{2} x^{T}Qx+c^{T}x<br>这时，线代和优化里就有很多有用的结论了：<br>如果Q是半正定矩阵，那么f(x)是一个凸函数。<br>如果Q是正定矩阵，那么全局最小值就是唯一的。<br>如果Q=0，二次规划问题就变成线性规划问题。<br>这也就回答了题主的问题，为什么正定、半正定，函数有什么正定不正定的问题。。。</p>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2016/07/27/svm笔记/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"fighting41love"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+
+
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-68954664-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+</body>
+</html>
