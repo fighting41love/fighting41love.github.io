@@ -25,7 +25,7 @@
 <meta property="og:description" content="写在前面：简书上搞机器学习的人极少，大都在CSDN上吧。我也在个人博客 http://fighting41love.github.io/#blog 上写了一些文章，苦于只能自我驱动，没有读者，有点难于坚持下去。
 所以，自己还是没能免俗，希望有更多人关注和支持。这是我在这里写技术博客的初衷。简书机器学习受众少，也是弊端。但从自己内心来说，不断写文章，就是加大自己的输出，那就必须加大输入，多读书，多总">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2528310-65ea34e2bc846f01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-08-07T19:11:11.000Z">
+<meta property="og:updated_time" content="2016-08-07T19:12:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM和Logistic Regression分别在什么时候使用？ | Yang Yang">
 <meta name="twitter:description" content="写在前面：简书上搞机器学习的人极少，大都在CSDN上吧。我也在个人博客 http://fighting41love.github.io/#blog 上写了一些文章，苦于只能自我驱动，没有读者，有点难于坚持下去。
@@ -194,10 +194,10 @@ classes that you can use:
 <p>Logistice Regression 和 SVM都能解决线性分类问题，也都能解决非线性分类问题（都使用kernel trick即可，只是LR引入kernel没有支持向量的话，计算代价有点高）。在这里我们仅讨论线性分类问题，即Logistic Regression 和 SVM with linear kernel。如果非线性分类，当然首选SVM。</p>
 <p>先抛一下Andrew Ng老师在Coursera上《Machine Learning》from stanford的结论：<br><strong>n</strong>: feature 数目        <strong>m</strong>: sample 数目<br><img src="http://upload-images.jianshu.io/upload_images/2528310-65ea34e2bc846f01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>以上只是Andrw Ng大神直观的总结，还有一些细节需要讨论：</p>
-<p>####1. SVM不是概率输出，Logistic Regression是概率输出。<br>也就是说，当一个新样本来了，SVM只会告诉你它的分类，而Logistic Regression会告诉你它属于某类的概率！<br>什么意思呢？当你想要知道某个样本属于一个类的概率时，SVM就不适用了。此时，应该使用Logistic Regression。</p>
+<h4 id="1-SVM不是概率输出，Logistic-Regression是概率输出。"><a href="#1-SVM不是概率输出，Logistic-Regression是概率输出。" class="headerlink" title="1. SVM不是概率输出，Logistic Regression是概率输出。"></a>1. SVM不是概率输出，Logistic Regression是概率输出。</h4><p>也就是说，当一个新样本来了，SVM只会告诉你它的分类，而Logistic Regression会告诉你它属于某类的概率！<br>什么意思呢？当你想要知道某个样本属于一个类的概率时，SVM就不适用了。此时，应该使用Logistic Regression。</p>
 <p>那么问题来了，点到SVM分类面的距离，是否可以转化为“概率输出”呢，即离分类面越远，其属于该类的概率越大，反之越小呢？《PRML》里确实提过类似的做法，也有一些其他的办法让SVM输出概率，但作者说这些方法都不太实用。</p>
-<p>####2. 异常点的鲁棒性问题<br>当训练样本中存在异常点时，由于Logistic Regression的lost function中有每一个点的贡献，所以某种程度上“削弱了”异常点的贡献。而SVM只需要考虑支持向量，此时支持向量本来就不是很多的情况下，几个异常点就很有可能极大影响SVM的表现。</p>
-<p>####3. 目标函数 lost function<br>Logistic Regression使用entropy loss，极大化似然函数。<br>而SVM使用hinge loss, 最大化间隔。两个loss差别不是很大，所以算是一个相同点了。</p>
+<h4 id="2-异常点的鲁棒性问题"><a href="#2-异常点的鲁棒性问题" class="headerlink" title="2. 异常点的鲁棒性问题"></a>2. 异常点的鲁棒性问题</h4><p>当训练样本中存在异常点时，由于Logistic Regression的lost function中有每一个点的贡献，所以某种程度上“削弱了”异常点的贡献。而SVM只需要考虑支持向量，此时支持向量本来就不是很多的情况下，几个异常点就很有可能极大影响SVM的表现。</p>
+<h4 id="3-目标函数-lost-function"><a href="#3-目标函数-lost-function" class="headerlink" title="3. 目标函数 lost function"></a>3. 目标函数 lost function</h4><p>Logistic Regression使用entropy loss，极大化似然函数。<br>而SVM使用hinge loss, 最大化间隔。两个loss差别不是很大，所以算是一个相同点了。</p>
 <p>####4. 实际问题：<br>实际问题中，如果数据量非常大，特征维度很高，使用SVM搞不定时，还是用Logistic Regression吧，速度更快一些。</p>
 <p>个人水平有限，如有错误请指出！谢谢！</p>
 
