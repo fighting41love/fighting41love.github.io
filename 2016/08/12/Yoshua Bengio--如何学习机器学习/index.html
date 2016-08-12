@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Yoshua Bengio 如何学习机器学习 | Yang Yang 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="John Doe">
+    
+    
+
+    <meta name="description" content="在Quora上问了机器学习相关的问题–机器学习怎么学？很荣幸得到了Yoshua Bengio的回答。
+我特意翻译过来，并加入了资料的链接，大家共飨哈，相信会有所启发，让你少走弯路：
+ Yoshua Bengio–如何学习机器学习：首先，你要在数学和计算机科学方面有很好的基础。以深度学习为例，你可以看一下MIT出版的书Deep learning的第一部分（网上有电子版，也可以购买纸质版），这一部分介">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Yoshua Bengio 如何学习机器学习 | Yang Yang">
+<meta property="og:url" content="http://yoursite.com/2016/08/12/Yoshua Bengio--如何学习机器学习/index.html">
+<meta property="og:site_name" content="Yang Yang">
+<meta property="og:description" content="在Quora上问了机器学习相关的问题–机器学习怎么学？很荣幸得到了Yoshua Bengio的回答。
+我特意翻译过来，并加入了资料的链接，大家共飨哈，相信会有所启发，让你少走弯路：
+ Yoshua Bengio–如何学习机器学习：首先，你要在数学和计算机科学方面有很好的基础。以深度学习为例，你可以看一下MIT出版的书Deep learning的第一部分（网上有电子版，也可以购买纸质版），这一部分介">
+<meta property="og:updated_time" content="2016-08-12T21:04:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Yoshua Bengio 如何学习机器学习 | Yang Yang">
+<meta name="twitter:description" content="在Quora上问了机器学习相关的问题–机器学习怎么学？很荣幸得到了Yoshua Bengio的回答。
+我特意翻译过来，并加入了资料的链接，大家共飨哈，相信会有所启发，让你少走弯路：
+ Yoshua Bengio–如何学习机器学习：首先，你要在数学和计算机科学方面有很好的基础。以深度学习为例，你可以看一下MIT出版的书Deep learning的第一部分（网上有电子版，也可以购买纸质版），这一部分介">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Yang Yang</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/home" title="" class="">Home</a></li>
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">Blog</a></li>
+              
+                
+                <li class="navigation__item"><a href="/publication" title="" class="">Publication</a></li>
+              
+                
+                <li class="navigation__item"><a href="/resume" title="" class="">Resume</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">Archive</a></li>
+              
+                
+                <li class="navigation__item"><a href="/Contact" title="" class="">Contact</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Yoshua Bengio 如何学习机器学习</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-08-12" class="post-meta__date date">2016-08-12</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/机器学习/">机器学习</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>在Quora上问了机器学习相关的问题–机器学习怎么学？<br>很荣幸得到了Yoshua Bengio的回答。</p>
+<p>我特意翻译过来，并加入了资料的链接，大家共飨哈，相信会有所启发，让你少走弯路：</p>
+<h3 id="Yoshua-Bengio–如何学习机器学习："><a href="#Yoshua-Bengio–如何学习机器学习：" class="headerlink" title=" Yoshua Bengio–如何学习机器学习："></a><strong> Yoshua Bengio–如何学习机器学习：</strong></h3><p>首先，你要在数学和计算机科学方面有很好的基础。以深度学习为例，你可以看一下MIT出版的书<a href="http://www.deeplearningbook.org/front_matter.pdf" target="_blank" rel="external">Deep learning的第一部分</a>（网上有电子版，也可以购买纸质版），这一部分介绍了相关的数学和计算机知识。</p>
+<p>其次，你需要阅读机器学习的诸多经典书，比如Bishop的<a href="http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf" target="_blank" rel="external">《Pattern Recognition and Machine Learning》</a>，Kevin Murphy的<a href="https://www.cs.ubc.ca/~murphyk/MLbook/pml-intro-22may12.pdf" target="_blank" rel="external">《Machine Learning: A Probabilistic Perspective》</a>，观看在线视频如Andrew Ng的coursera课程<a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="external">《Machine Learning》</a>以及Hugo Larochelle关于<a href="http://info.usherbrooke.ca/hlarochelle/neural_networks/content.html" target="_blank" rel="external">《neural networks》</a>的在线视频。</p>
+<p>再次，你需要开始练习，自己编程实现机器学习算法，把玩一些数据，并参与一些<a href="https://www.kaggle.com" target="_blank" rel="external">Kaggle</a>上的竞赛。学会调参和模型选择。</p>
+<p>最后，要多多阅读。如果你对deep learning 感兴趣，<a href="http://www.deeplearningbook.org/front_matter.pdf" target="_blank" rel="external">我的书中</a>的第二部分讲解了常用算法的基础。这时，你需要有足够的背景知识，培养阅读大量论文的习惯，促使自己不断思考。</p>
+<p>英语好的同学们可以直接看原文：</p>
+<blockquote>
+<p><strong>First</strong> you need to be trained with the appropriate basis in mathematics and computer science. In the case of deep learning, you can see part 1 of the MIT Press Deep Learning book (available online for now, eventually MIT Press will have a real paper book) to either brush up on these or see which areas of math and CS are most relevant. </p>
+<p><strong>Then</strong> you need to read on machine learning (there are several good books, such as Chris Bishop’s and Kevin Murphy’s, online videos such as Andrew Ng’s coursera’s class and Hugo Larochelle’s videos on neural networks, and you can get a summary of many of the basic issues in chapter 5 of the Deep Learning book). </p>
+<p><strong>Then</strong> you need to start practicing, i.e., programming some learning algorithms yourself and playing with them on data, try to compete in some Kaggle competitions, for example.  Try to become an expert at optimizing hyper-parameters and choosing models appropriately. </p>
+<p><strong>In parallel</strong>, continue reading. If you are interested in deep learning, part 2 of my book will give you the basis for the most common algorithms. At that point you should have enough background to start a steady regimen of reading papers that tickle your fancy.</p>
+</blockquote>
+<p>资料链接请直接点击Bengio回答中的超链。</p>
+<p>希望对你有帮助！<br>如您有所收获，请点“喜欢”并收藏哦！O(∩_∩)O~</p>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2016/08/12/Yoshua Bengio--如何学习机器学习/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"fighting41love"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+
+
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-68954664-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+</body>
+</html>
