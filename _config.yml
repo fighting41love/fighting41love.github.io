@@ -104,4 +104,4 @@ theme: vita
 deploy:
   type: git
   repo: git@github.com:fighting41love/fighting41love.github.io.git
-  branch: master
+  branch: main
