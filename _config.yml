@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Yang's Homepage
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
+author: Yang
 language: en
 timezone: ''
 
@@ -70,6 +70,7 @@ default_category: uncategorized
 category_map:
 tag_map:
 
+
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 meta_generator: true
@@ -97,11 +98,13 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: vita
+theme: cactus #vita
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
   repo: git@github.com:fighting41love/fighting41love.github.io.git
-  branch: main
+  branch: master
+
+# white scheme
