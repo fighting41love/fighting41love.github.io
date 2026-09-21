@@ -727,3 +727,81 @@ ul.courses li:hover {
 #publications .date strong {
     font-weight: 600;
 }
+
+.books-read-toggle {
+    position: absolute;
+    left: -9999px;
+}
+
+.books-read-toggle-label {
+    display: block;
+    margin: 0.6em 0 0.8em;
+    padding: 0.35em 0;
+    cursor: pointer;
+    color: #606d76;
+    font-size: 0.95rem;
+    text-align: center;
+    user-select: none;
+}
+
+.books-read-toggle-label:hover {
+    color: #333;
+}
+
+.books-read-toggle:not(:checked) ~ .books-read-toggle-label .books-less,
+.books-read-toggle:checked ~ .books-read-toggle-label .books-more {
+    display: none;
+}
+
+/* 非主流人生：技能/旅游条目与经历条目保持同一层级字号 */
+#skills .item .name,
+#travel .item .name {
+    font-size: 1.38rem;
+    margin: 0;
+}
+
+/* 非主流人生：技能条目横向排列 */
+#resume.unconventional #skills {
+    display: block;
+    margin-top: .8em;
+}
+
+#resume.unconventional #skills .item {
+    display: inline-block;
+    vertical-align: top;
+    width: auto;
+    padding: 0 1.6em .5em 0;
+}
+
+/* 非主流人生：音乐条目横向排列（与体育区块一致） */
+#resume.unconventional #music {
+    display: block;
+    margin-top: .8em;
+}
+
+#resume.unconventional #music .item {
+    display: inline-block;
+    vertical-align: top;
+    width: auto;
+    padding: 0 1.6em .5em 0;
+}
+
+#resume.unconventional #music .name {
+    font-size: 1.38rem;
+}
+
+/* 非主流人生：描述与标题同行显示 */
+.section .description {
+    display: inline;
+    font-weight: 400;
+    color: #606d76;
+    margin-left: .4em;
+}
+
+#books.books-read-collapsible .books-item-more {
+    display: none;
+}
+
+#books.books-read-collapsible .books-read-toggle:checked ~ .books-item-more {
+    display: block;
+}
